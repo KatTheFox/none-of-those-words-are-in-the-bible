@@ -1,0 +1,35 @@
+import { readFile, readFileSync, writeFileSync, writeJSONSync } from "fs-extra";
+function uniqueInArray(array: string[]) {
+  return array.filter((item, index) => {
+    return array.indexOf(item) === index;
+  });
+}
+function trimSpecialChars(str: string): string {
+  let reg = /[a-zA-Z ]/g;
+  let matches = str.match(reg);
+  if (matches == null) throw new Error("Regex exec failed");
+  let result = matches.join("");
+  return result.toLowerCase();
+}
+function wordsInString(str: string) {
+  return uniqueInArray(trimSpecialChars(str).split(" "));
+}
+
+let biblefiles = {
+  kjvPath:
+    "/home/katrina/none-of-those-words-are-in-the-bible/biblesrc/kjv.txt",
+  nrsvPath:
+    "/home/katrina/none-of-those-words-are-in-the-bible/biblesrc/nrsv.txt",
+  nivPath:
+    "/home/katrina/none-of-those-words-are-in-the-bible/biblesrc/niv.txt",
+};
+let kjv = readFileSync(biblefiles.kjvPath).toString("utf-8");
+let nrsv = readFileSync(biblefiles.nrsvPath).toString("utf-8");
+let niv = readFileSync(biblefiles.nivPath).toString("utf-8");
+let words = uniqueInArray(
+  wordsInString(kjv).concat(wordsInString(niv), wordsInString(nrsv))
+);
+writeJSONSync(
+  "/home/katrina/none-of-those-words-are-in-the-bible/biblesrc/biblewords.json",
+  words
+);

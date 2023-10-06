@@ -1,0 +1,8 @@
+{
+  "extends": "isaacscript-tsconfig/tsconfig.browser.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outFile": "./dist/noneofthosewordslib.js"
+  },
+  "include": ["./src/**/*.ts"]
+}

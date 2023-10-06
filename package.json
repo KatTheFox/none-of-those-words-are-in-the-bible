@@ -1,0 +1,26 @@
+{
+  "name": "none-of-those-words-are-in-the-bible",
+  "version": "1.0.0",
+  "description": "How many of those words are, actually, in the bible?",
+  "main": "dist/index.js",
+  "repository": "https://github.com/KatTheFox/none-of-those-words-are-in-the-bible.git",
+  "author": "Katrina Renarde <katthefoxmaid@gmail.com>",
+  "license": "GPL-3.0-only",
+  "private": false,
+  "scripts": {
+    "prepare": "husky install",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^17.7.2",
+    "@commitlint/config-conventional": "^17.7.0",
+    "fs-extra": "^11.1.1",
+    "husky": "^8.0.3",
+    "isaacscript-lint": "^6.0.0",
+    "isaacscript-tsconfig": "^4.0.0",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.2"
+  }
+}
