@@ -23924,6 +23924,7 @@ function uniqueInArray(array: string[]) {
   });
 }
 function trimSpecialChars(str: string): string {
+  str = str.replace("\n", " ");
   let reg = /[a-zA-Z ]/g;
   let matches = str.match(reg);
   if (matches == null) throw new Error("Regex exec failed");
